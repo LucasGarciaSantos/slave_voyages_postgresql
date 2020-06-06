@@ -3,12 +3,11 @@ O objetivo deste projeto é disponibilizar os dados do site Slave Voyages em for
 
 ## Descrição
 Utilizamos o arquivo [CSV](https://www.slavevoyages.org/documents/download/tastdb-2010.csv) para popular a base de dados. 
-Para compreender os valores de cada coluna é necessário consultar a [descrição do projeto Slave Voyages] (https://www.slavevoyages.org/voyage/about#methodology/introduction/0/pt/) e consultar o arquivo [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf) que contém as especificação e os valores possiveis de cada coluna.
+Para compreender os valores de cada coluna é necessário consultar a [descrição do projeto Slave Voyages](https://www.slavevoyages.org/voyage/about#methodology/introduction/0/pt/) e  o arquivo [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf) que contém as especificação e os valores possiveis de cada coluna.
 
-Através do [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf) criamos tabelas para normalizar o banco de dados, utilizando diversas tabelas ligadas por chaves estrangeiras.
+Através do [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf) criamos tabelas para normalizar o banco de dados, utilizando diversas tabelas ligadas por chaves estrangeiras. 
 
-O arquivo tables.sql contém as estruturas das tabelas e as iformações do [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf)
-O arquivo voyages.sql contém os dados do arquivo [CSV](https://www.slavevoyages.org/documents/download/tastdb-2010.csv).
+O arquivo tables.sql contém as estruturas das tabelas e as informações do [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf). O arquivo voyages.sql contém os dados do arquivo [CSV](https://www.slavevoyages.org/documents/download/tastdb-2010.csv).
 
 ### Lista de tabelas existentes:
 
@@ -27,7 +26,7 @@ O arquivo voyages.sql contém os dados do arquivo [CSV](https://www.slavevoyages
 - voyage_groupings_xmimpflag
 - voyages
 
-Para as tabelas que referenciam apenas uma coluna o padrão de nomenclatura é nome_tabela_coluna.
+Para as tabelas que referenciam apenas uma coluna no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf), o padrão de nomenclatura é nome_tabela_coluna.
 Por exemplo, a tabela imputed_outcome_voyage_fate2 representa a coluna fate2 no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf).
 
 ### Tabelas:
@@ -42,7 +41,7 @@ Por exemplo, a tabela imputed_outcome_voyage_fate2 representa a coluna fate2 no 
 - ton_in_tonnage_**tontype**
 - voyage_groupings_**xmimpflag**
 
-Para as tabelas que não seguem esse padrão, significa que seus valores representam mais de uma coluna
+Para as tabelas que não seguem esse padrão, significa que seus valores representam mais de uma coluna no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf).
 
 ### Tabelas: 
 
@@ -50,7 +49,7 @@ Para as tabelas que não seguem esse padrão, significa que seus valores represe
 - broad_regions
 - specific_regions
 
-A tabela voyages contem todas as informações do arquivo CSV original.
+A tabela voyages contém todas as informações do arquivo CSV original.
 As demais tabelas possuem os códigos(IDs) referenciados pela tabela voyages. 
 Todos os códigos estão referenciados no arquivo [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf)
 
@@ -58,7 +57,7 @@ Todos os códigos estão referenciados no arquivo [Codebook](https://www.slavevo
 
 - Entender as inconsistências encontradas:
 Identificamos alguns códigos no arquivo CSV que não constam no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf).
-Existem 25 incosistencias na tabela places. São identificadas através da coluna label com a string "Unknown"
+Existem 25 inconsistências na tabela places. São identificadas através da coluna label com a string "Unknown"
 Existe uma entrada na tabela rig_vessel_rig também idendificada através da coluna label com a string "Unknown"
 
 - Utilizar o arquivo PSPP para contruir o banco de dados.
