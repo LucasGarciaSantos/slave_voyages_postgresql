@@ -53,18 +53,16 @@ A tabela voyages contém todas as informações do arquivo CSV original.
 As demais tabelas possuem os códigos(IDs) referenciados pela tabela voyages. 
 Todos os códigos estão referenciados no arquivo [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf)
 
-## Próximos passos:
-
-- Entender as inconsistências encontradas:
-Identificamos alguns códigos no arquivo CSV que não constam no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf).
-Existem 25 inconsistências na tabela places. São identificadas através da coluna label com a string "Unknown"
-Existe uma entrada na tabela rig_vessel_rig também idendificada através da coluna label com a string "Unknown"
-
-- Utilizar o arquivo PSPP para contruir o banco de dados.
-- Testar os scripts SQL em outros bancos como MySQL.
-
 ## Como utilizar?
 
+### 1 - Através do arquivo de DUMP
+Utilizando o arquivo de ** dump_slave_voyages ** . Basta executar o comando pg_restore em um banco PostgreSQL.
+Este dump é completo, possui todas as informações presentes nos arquivos SQL do projeto.
+Exemplo:
+
+`pg_restore -U nome_do_usuario -d nome_do_banco **dump_slave_voyages**`
+
+### 2 - Através dos scripts SQL
 Disponibilizamos 3 arquivos:
 
 1. Arquivos tables.sql
@@ -84,10 +82,20 @@ Com esses passos as tabelas que referenciam o [Codebook](https://www.slavevoyage
 A tabela voyages terá apenas sua estrutura criada. 
 Para popular a tabela voyages será necessário executar o script ruby import_csv_to_postgresql.rb
 
-```ruby import_csv_to_postgresql.rb```
+`ruby import_csv_to_postgresql.rb`
 
-Dessa forma a tabela voyages será populada com todas as informações do CSV, serão inseridas 34.500 registros.
+Dessa forma a tabela voyages será populada com todas as informações do CSV, serão inseridas 34.941 registros.
 
-Outra forma é utilizar apenas o arquivo de dump. Dessa forma os passos anteriores são desnecessários.
+### Arquivo de DUMP
+Disponibilizamos um arquivo de dump com os utilizar apenas o arquivo de dump. Dessa forma os passos anteriores são desnecessários.
+`pg_restore -U postgres -d slave_teste dump_slave_voyages`
 
-```pg_restore nome_do_banco -U postgresql -f dump_slave_voyages```
+## Próximos passos:
+
+- Entender as inconsistências encontradas:
+Identificamos alguns códigos no arquivo CSV que não constam no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf).
+Existem 25 inconsistências na tabela places. São identificadas através da coluna label com a string "Unknown"
+Existe uma entrada na tabela rig_vessel_rig também idendificada através da coluna label com a string "Unknown"
+
+- Utilizar o arquivo PSPP para construir o banco de dados.
+- Testar os scripts SQL em outros bancos como MySQL.
