@@ -90,8 +90,8 @@ Dessa forma a tabela voyages deve ter todas as informações do CSV, serão inse
 
 - Entender as inconsistências encontradas:
 Identificamos alguns códigos no arquivo CSV que não constam no [Codebook](https://www.slavevoyages.org/documents/download/Codebook2013_5-3_final.pdf).
-Existem 25 inconsistências na tabela places. São identificadas através da coluna label com a string "Unknown"
-Existe uma entrada na tabela rig_vessel_rig também idendificada através da coluna label com a string "Unknown"
+Existem 25 inconsistências na tabela places. São identificadas através da coluna label com a string "Unknown".<br />
+Existe uma entrada na tabela rig_vessel_rig também identificada através da coluna label com a string "Unknown".
 
 - Utilizar o arquivo PSPP para construir o banco de dados.
 - Testar os scripts SQL em outros bancos como MySQL.
